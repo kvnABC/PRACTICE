@@ -20,7 +20,10 @@ USE myDB;
    CREATE VIEW ALLUSERS AS
     -> SELECT NAME, DESCRIP FROM USER INNER JOIN ROLES ON USER.ID_ROL = ROLES.ID_ROL;
 
- DELIMITER //
+
+  --USER CRUD
+  
+  DELIMITER //
    CREATE PROCEDURE USERINS(nam varchar(25), idrol int, pass varchar(10), username varchar(20))
    BEGIN
    INSERT INTO USER (NAME,ID_ROL,PASSWORD,USER_NAME) VALUES (nam,idrol,pass,username);
@@ -32,8 +35,30 @@ USE myDB;
     UPDATE USER SET NAME = nam, ID_ROL = idrol, PASSWORD = pass, USER_NAME = username WHERE USER.ID_USER = id;
     END//
     
-    DELIMITER //
+     DELIMITER //
      CREATE PROCEDURE USERDEL(iduser int)
      BEGIN
      DELETE FROM USER WHERE USER.ID_USER = iduser;
+     END//
+     
+     --ROL CRUD
+     
+     DELIMITER //
+     CREATE PROCEDURE ROLINSERT(idrol int, descr varchar(15))
+     BEGIN
+     INSERT INTO ROLES VALUES (idrol, descr);
+     END//
+     
+     
+     DELIMITER //
+     CREATE PROCEDURE ROLUPD(idrol int, descr varchar(15))
+     BEGIN
+     UPDATE ROLES SET DESCRIP = descr WHERE ID_ROL = idrol;
+     END//
+     
+     
+     DELIMITER //
+     CREATE PROCEDURE ROLDELT(idrol int)
+     BEGIN
+     DELETE FROM ROLES WHERE ID_ROL = idrol;
      END//
