@@ -1,0 +1,9 @@
+# Git
+git status # Current status on my project
+git reset --hard # Revert all my changes
+
+# MySQL
+mysql -u root -p # Access to instance
+show databases; # Show all databases
+drop database myDB; # Delete database
+source <filename> # Execute file into current MySQL instance
