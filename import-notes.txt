@@ -8,3 +8,5 @@ show databases; # Show all databases
 drop database myDB; # Delete database
 source <filename> # Execute file into current MySQL instance
 call userins('Kenneth Bolivar', 1, 'keboca', 'keboca'); # Call a procedure
+
+# Learn git
