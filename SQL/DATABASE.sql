@@ -55,4 +55,10 @@ DELIMITER //
     #ADD UNIQUE USERNAME
     
     ALTER TABLE USER ADD CONSTRAINT UQ_USER UNIQUE (USER_NAME);
+
+    DELIMITER $$
+CREATE FUNCTION `logIn`(userN varchar(20), pass varchar(10)) RETURNS int(11)
+    READS SQL DATA
+return (select count(ID_USER) from User where USER_NAME = userN and PASSWORD = pass)$$
+DELIMITER ;
     
