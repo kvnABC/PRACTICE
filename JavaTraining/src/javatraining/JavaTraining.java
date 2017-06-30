@@ -29,13 +29,15 @@ public class JavaTraining {
             e.printStackTrace();
         }
         
+        
         Connection conn = null;
         Properties connectProp = new Properties();
-        connectProp.put("user", "root");
-        connectProp.put("password", "root");
+        SingleConnect.getInstance().values();
+        connectProp.put("user", SingleConnect.getInstance().getUser());
+        connectProp.put("password", SingleConnect.getInstance().getPassword());
 
         try{
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:8889/", connectProp);
+        conn = DriverManager.getConnection(SingleConnect.getInstance().getHost(), connectProp);
          System.out.println(conn.getMetaData().toString());
          
         }
