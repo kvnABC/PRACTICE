@@ -1,6 +1,11 @@
 # Git
 git status # Current status on my project
 git reset --hard # Revert all my changes
+git add -A # Include all changes into scope
+git add {path_specific_file/folder} # Include specific changes
+git commit -am "<ANY_COMMENT>" # Commit your changes
+git pull origin master # Download last version from repository
+git push origin master # Send your changes to repository
 
 # MySQL
 mysql -u root -p # Access to instance
@@ -8,5 +13,3 @@ show databases; # Show all databases
 drop database myDB; # Delete database
 source <filename> # Execute file into current MySQL instance
 call userins('Kenneth Bolivar', 1, 'keboca', 'keboca'); # Call a procedure
-
-# Learn git
